@@ -4,17 +4,91 @@
  */
 package cajero;
 
+import cajero.exceptions.operacionInvalidaException;
+import cajero.exceptions.saldoInsuficienteException;
+
 /**
  *
- * @author Sebastian
+ * @author 
+ *@version  1.0 
  */
-public class Cajero {
 
+public class Cajero {
+    
+  /**
+   * se crea la variable saldo
+   */  
+ private float saldo;
+ /**
+  *  se crea el metodo contructor con el parametro saldo la cual contendra el saldo del cajero
+  * @param saldo 
+  */
+    public Cajero(float saldo){
+        this.saldo = saldo;
+    
+    }
     /**
-     * @param args the command line arguments
+     * 
+     * @return float saldo : retorna el saldo
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public float getSaldo() {
+        /**
+         * 
+         */
+        return saldo;
+    }
+    /**
+     * 
+     * @param saldo : otorga valor al saldo
+     */ 
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+    
+    
+     /**
+      *  metodo que se encarga de hacer depositos de dinero
+      * @param deposito : es el monto que se envia por parametro para depositar
+      * @return float saldo : retorna el saldo
+      * @throws operacionInvalidaException 
+      */
+    public float depositar(float deposito) throws operacionInvalidaException {
+    
+        if (deposito <= 0) { 
+            throw new operacionInvalidaException("Deposito invalido");
+        }
+        
+        else 
+            saldo += deposito;
+        return saldo; 
+
+}
+     /**
+      * metodo que se encarga de hacer retiros de dinero
+      * @param retiro : paremetro que se envia para retirar dinero 
+      * @return float saldo : retorna el saldo
+      * @throws saldoInsuficienteException : en caso de que el saldo sea insufienciente , se muestra esta excepcion
+      * @throws operacionInvalidaException : en caso de que el parametro sea invalido, se capta esta excepcion preguntar al profe
+      */
+    public float retirar(float retiro) throws saldoInsuficienteException, operacionInvalidaException {
+            
+        
+        
+           if(retiro > saldo){
+            throw new saldoInsuficienteException("Saldo insuficiente");
+          }
+          
+          else if(retiro <= 0){
+              
+              throw new operacionInvalidaException("retiro invalido");
+           
+          
+          }
+         
+         else
+              saldo-= retiro;
+      return saldo;
+    
     }
     
 }
