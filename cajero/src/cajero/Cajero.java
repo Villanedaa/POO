@@ -6,7 +6,9 @@ package cajero;
 
 import cajero.exceptions.operacionInvalidaException;
 import cajero.exceptions.saldoInsuficienteException;
-
+import cajero.Cliente;
+import cajero.exceptions.usuarioIncorrectoException;
+import java.util.ArrayList;
 /**
  *
  * @author 
@@ -15,6 +17,8 @@ import cajero.exceptions.saldoInsuficienteException;
 
 public class Cajero {
     
+    private ArrayList<Cliente> clientes = new ArrayList<>();
+    // private ArrayList<Estudiante> estudiantes;
   /**
    * se crea la variable saldo
    */  
@@ -38,9 +42,35 @@ public class Cajero {
         return saldo;
     }
     /**
-     * 
-     * @param saldo : otorga valor al saldo
+     * @param cliente
+     * @param nombre
+     * @param pin
+     *
+     * @return : se retorna un booleano del resultado
+     *  @throws usuarioIncorrectoException 
      */ 
+    
+    public boolean ingresar(Cliente cliente,String nombre, String pin) throws usuarioIncorrectoException{
+      
+      
+      boolean resultado = false;
+        if(cliente.getNombre().equals(nombre) && cliente.getPin().equals(pin)){
+
+            resultado = true;
+  }
+      
+      else{
+               throw new usuarioIncorrectoException("Ingreso invalido");
+                      
+      }
+      
+        return resultado;   
+      
+    }
+        
+    
+    
+    
     public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
