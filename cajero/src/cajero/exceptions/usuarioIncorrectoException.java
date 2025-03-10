@@ -9,6 +9,10 @@ package cajero.exceptions;
  * @author Sebastian
  */
 public class usuarioIncorrectoException extends Exception {
+   /**
+    * 
+    * @param mensaje : Contiene el mensaje de error
+    */ 
 
     public usuarioIncorrectoException(String message) {
         super(message);
