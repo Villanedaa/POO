@@ -11,8 +11,9 @@ import cajero.exceptions.usuarioIncorrectoException;
 import java.util.ArrayList;
 /**
  *
- * @author 
- *@version  1.0 
+ *  * @version 1.0
+ * @author sebastian villaneda gutierrez
+ * sebastian.villanedag@autonoma.edu.co
  */
 
 public class Cajero {
@@ -50,26 +51,37 @@ public class Cajero {
      *  @throws usuarioIncorrectoException 
      */ 
     
-    public boolean ingresar(Cliente cliente,String nombre, String pin) throws usuarioIncorrectoException{
+    public String ingresar(Cliente cliente,String nombre, String pin){
       
       
       boolean resultado = false;
-        if(cliente.getNombre().equals(nombre) && cliente.getPin().equals(pin)){
+      
+      try{
+          if(cliente.getNombre().equals(nombre) && cliente
+                .getPin().equals(pin)){
 
             resultado = true;
+            }
+            else{
+                  throw new usuarioIncorrectoException("Ingreso invalido");  
+              }
+            return "Ingreso exitoso";
+            
+      }catch(Exception e){
+          return e.getMessage();
+      }
+        
   }
       
-      else{
-               throw new usuarioIncorrectoException("Ingreso invalido");
-                      
-      }
+         
       
-        return resultado;   
-      
-    }
+    
         
     
-    
+    /**
+     * 
+     * @param saldo : se otorga un valor a la variable saldo
+     */
     
     public void setSaldo(float saldo) {
         this.saldo = saldo;

@@ -6,7 +6,9 @@ package cajero.exceptions;
 
 /**
  *
- * @author Sebastian
+ * * @version 1.0
+ * @author sebastian villaneda gutierrez
+ * sebastian.villanedag@autonoma.edu.co
  */
 public class usuarioIncorrectoException extends Exception {
    /**
