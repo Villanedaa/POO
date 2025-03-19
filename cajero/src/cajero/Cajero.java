@@ -53,19 +53,21 @@ public class Cajero {
     
     public String ingresar(Cliente cliente,String nombre, String pin){
       
+     
       
-      boolean resultado = false;
       
       try{
           if(cliente.getNombre().equals(nombre) && cliente
                 .getPin().equals(pin)){
 
-            resultado = true;
+            return "true";
             }
             else{
                   throw new usuarioIncorrectoException("Ingreso invalido");  
+                  
               }
-            return "Ingreso exitoso";
+          
+            
             
       }catch(Exception e){
           return e.getMessage();
