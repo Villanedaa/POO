@@ -9,6 +9,8 @@ import cajero.exceptions.saldoInsuficienteException;
 import cajero.Cliente;
 import cajero.exceptions.usuarioIncorrectoException;
 import java.util.ArrayList;
+
+
 /**
  *
  *  * @version 1.0
@@ -24,6 +26,15 @@ public class Cajero {
    * se crea la variable saldo
    */  
  private float saldo;
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(ArrayList<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+ 
  /**
   *  se crea el metodo contructor con el parametro saldo la cual contendra el saldo del cajero
   * @param saldo 

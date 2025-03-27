@@ -8,7 +8,10 @@ import java.awt.Color;
 
 /**
  *
- * @author Sebastian
+ * @author Sebastian <sebastian.villanedag@autonoma.edu.co>
+ * @version 1.0
+ * @since 19032025
+ * 
  */
 public class Pagos extends javax.swing.JFrame {
 

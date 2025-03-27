@@ -18,20 +18,19 @@ import java.awt.Color;
 /**
  * se importa la clase criptoMoneda
  */
-import cajero.pagos.PagoCriptomoneda;
-//import cajero.pagos.
+//#import cajero.pagos.
 
-public class AutenticacionExtra extends javax.swing.JFrame {
+public class AutenticacionExtraPaypal extends javax.swing.JFrame {
  /**
   * se crea una instancia de PagoCriptomoneda y de Cliente 
   */
-      private PagoCriptomoneda cripto = new PagoCriptomoneda();
+//     private PagoPaypal cripto = new PagoPaypal();
      private Cliente cliente = new Cliente("sebas","123");
    
     /**
      * Creates new form AutenticacionExtra
      */
-    public AutenticacionExtra() {
+    public AutenticacionExtraPaypal() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -198,8 +197,8 @@ public class AutenticacionExtra extends javax.swing.JFrame {
     private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
-        boolean validacion = cripto.autenticar(cliente, jTextPane1.getText(),jTextPane2.getText(), jTextPane3.getText());
-        jTextArea1.setText(validacion+"");
+      //  boolean validacion = cripto.autenticar(cliente, jTextPane1.getText(),jTextPane2.getText(), jTextPane3.getText());
+        //jTextArea1.setText(validacion+"");
     }//GEN-LAST:event_btnValidarActionPerformed
 
     /**

@@ -9,11 +9,20 @@ import cajero.autenticacion.AutenticacionExtra;
 
 /**
  *
- * @author Sebastian
+ * @author Sebastian <sebastian.villanedag@autonoma.edu.co>
+ * @version 1.0
+ * @since 19032025
+ * 
+ */
+
+/**
+ * 
+ * Se crea la clase PagoCriptomoneda, La cual hereda de la clase Pago y implementa el metodo Autenticar de la interface AutenticacionExtra
  */
 public class PagoCriptomoneda extends Pago implements AutenticacionExtra {
 
     @Override
+    
     public boolean autenticar(Cliente cliente, String nombre,String pin,String res) {
       
          boolean resultado = false;
