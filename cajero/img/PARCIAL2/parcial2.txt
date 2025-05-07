@@ -1,0 +1,81 @@
+'''Sistema de Gestión de Citas Médicas
+
+Objetivo:
+Desarrollar una aplicación de línea de comandos en Python que administre el ciclo
+completo de las citas médicas. El sistema debe permitir registrar, procesar, modificar y
+cancelar citas, al mismo tiempo que guarda un historial de operaciones para poder revertir
+acciones en caso de errores. La solución hará uso de estructuras de datos clásicas,
+implementadas sobre listas enlazadas, para manejar:
+ Listas Enlazadas: Almacenamiento dinámico de todas las citas registradas.
+ Colas (FIFO): Gestión de las citas pendientes de ser procesadas, respetando el
+orden de llegada.  
+ Pilas (LIFO): Registro de operaciones críticas (creación, modificación,
+cancelación, procesamiento) para habilitar la funcionalidad de &quot;deshacer&quot; la última
+acción.
+Requerimientos Funcionales:
+1. Registro de Citas:
+o El usuario puede crear una nueva cita ingresando datos básicos como:
+ Identificador único (generado automáticamente).
+ Nombre del paciente.
+ Hora de la cita (en formato de texto o se pueda interpretar como
+fecha/hora).
+ Nombre del doctor.
+ Estado de la cita (por ejemplo, &quot;Programada&quot;).
+o Una vez creada, la cita se añade a una lista que mantiene todas las citas y se
+coloca en una cola de pendientes.
+
+2. Listado de Citas:
+o Se debe permitir al usuario visualizar todas las citas registradas.
+o También se puede ofrecer una opción para listar únicamente las citas
+pendientes (aquellas que aún están en la cola de procesamiento).
+
+3. Modificación de Citas:
+o El usuario podrá buscar una cita por su ID y modificar alguno de sus campos
+(por ejemplo, actualizar la hora, cambiar el doctor o actualizar el nombre del
+paciente).
+
+o La operación de modificación se guarda en el historial para poder revertirla
+si fuera necesario.
+4. Cancelación de Citas:
+o El sistema debe permitir cancelar una cita, lo que cambiará su estado a
+&quot;Cancelada&quot; y la eliminará de la cola de pendientes (si aún se encuentra allí).
+o La cancelación también se registra en el historial.
+5. Procesamiento de Citas:
+o Mediante la cola, el sistema procesará las citas en orden de llegada. Al
+procesar una cita, se actualizará su estado a &quot;Completada&quot; y se eliminará de
+la cola de pendientes.
+o Este proceso se registra en el historial para poder deshacer el procesamiento
+si es necesario.
+6. Deshacer Operaciones:
+o Implementar una funcionalidad para revertir la última operación registrada
+(ya sea creación, modificación, cancelación o procesamiento de una cita)
+utilizando la pila de historial.
+
+Ejemplo de Aplicación
+Caso de Uso: Gestión de Citas en una Clínica
+1. Registro de una Cita:
+Imagina que, en la recepción de una clínica, la recepcionista ingresa al sistema para
+registrar una nueva cita. Se solicita el nombre del paciente, la hora de la cita y el
+doctor que atenderá. Al confirmar la operación, el sistema asigna automáticamente
+un ID (por ejemplo, 101) y registra la cita en una lista general. Además, la cita se
+añade a una cola de pendientes, que ordena todas las citas según su orden de
+llegada.
+2. Listado y Procesamiento de Citas:
+A lo largo del día, el sistema permite consultar todas las citas programadas,
+mostrando detalles como el paciente, la hora, el doctor y el estado actual
+(&quot;Programada&quot;). Cuando llega la hora de atención, la clínica procesa la siguiente
+cita. El sistema toma la cita más antigua de la cola (siguiendo el orden FIFO), la
+marca como &quot;Completada&quot; y la elimina de la cola, lo que indica que el paciente ya
+fue atendido.
+3. Modificación y Cancelación:
+Si un paciente necesita reagendar, la recepcionista puede buscar la cita por ID y
+actualizar los datos (por ejemplo, cambiar la hora o el doctor asignado). Si, por otro
+
+lado, un paciente cancela su cita, se cambia el estado a &quot;Cancelada&quot; y se elimina de
+la cola. Cada una de estas acciones se registra en el historial, permitiendo al sistema
+revertir la última operación en caso de error o cambio de decisión.
+4. Funcionalidad de Deshacer:
+Supongamos que tras cancelar una cita se detecta un error y la recepcionista debe
+recuperar la información original. Mediante la función &quot;deshacer&quot;, se revierte la
+última acción (cancelación, en este caso) y la cita vuelve a tener su estado previo,
+reintegrándola en la cola de pendientes si fuera necesario.'''
