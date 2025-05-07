@@ -15,11 +15,18 @@ package corredor;
 
 //Clase que representara a un corredor mediante un hilo
 public class Corredor extends Thread{
+    //Variable tipo String que guardara el nombre de un corredor
     private String nombre;
+    //Variable que guardara los pasos de nuestro corredor
     private  int pasos = 0;
+    //variable que generara nuestro sleep random
     private int numero;
     //volatile es para que los hilos compartan la variable en tiempo real
     private static volatile boolean gano = false; 
+    /**
+     * 
+     * @param nombre : Se crea constructor con la variable nombre
+     */
     public Corredor(String nombre){
     
     this.nombre = nombre;
@@ -35,6 +42,9 @@ public class Corredor extends Thread{
     //}
 
         @Override
+        /**
+         * Metodo run donde imprimiremos los pasos de cada corredor y generaremos un sleep random
+         */
        public void run(){
         //while(ejecucion){
         
@@ -56,9 +66,5 @@ public class Corredor extends Thread{
                 }
            
             }
-        }
-    
-    
-   
-    
+        }  
 }
