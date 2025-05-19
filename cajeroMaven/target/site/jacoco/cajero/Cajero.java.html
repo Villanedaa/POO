@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Cajero.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CajeroMaven</a> &gt; <a href="index.source.html" class="el_package">cajero</a> &gt; <span class="el_source">Cajero.java</span></div><h1>Cajero.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package cajero;
+
+import cliente.Cliente;
+import exceptions.operacionInvalidaException;
+import exceptions.saldoInsuficienteException;
+import exceptions.usuarioIncorrectoException;
+import java.util.ArrayList;
+
+
+/**
+ *
+ *  
+ * @author sebastian villaneda gutierrez&lt;sebastian.villanedag@autonoma.edu.co&gt;
+ * @version 1.0
+ * @since  05/10/2025
+ * 
+ */
+
+public class Cajero {
+    
+ 
+ private float saldo;
+
+    
+    
+ 
+ /**
+  *  se crea el metodo contructor con el parametro saldo la cual contendra el saldo del cajero
+  * @param saldo 
+  */
+<span class="fc" id="L35">    public Cajero(float saldo){</span>
+<span class="fc" id="L36">        this.saldo = saldo;</span>
+    
+<span class="fc" id="L38">    }</span>
+    /**
+     * 
+     * @return float saldo : retorna el saldo
+     */
+    public float getSaldo() {
+        /**
+         * 
+         */
+<span class="fc" id="L47">        return saldo;</span>
+    }
+    /**
+     * @param cliente
+     * @param nombre
+     * @param pin
+     *
+     * @return : se retorna un booleano del resultado
+     *  @throws usuarioIncorrectoException 
+     */ 
+    
+    public String ingresar(Cliente cliente, String nombre, String pin) throws usuarioIncorrectoException {
+<span class="pc bpc" id="L59" title="1 of 4 branches missed.">    if (cliente.getNombre().equals(nombre) &amp;&amp; cliente.getPin().equals(pin)) {</span>
+<span class="fc" id="L60">        return &quot;true&quot;;</span>
+    } else {
+<span class="fc" id="L62">        throw new usuarioIncorrectoException(&quot;Ingreso invalido&quot;);</span>
+    }
+}
+
+ /**
+     * 
+     * @param saldo : se otorga un valor a la variable saldo
+     */
+    
+    public void setSaldo(float saldo) {
+<span class="fc" id="L72">        this.saldo = saldo;</span>
+<span class="fc" id="L73">    }</span>
+    
+    
+     /**
+      *  metodo que se encarga de hacer depositos de dinero
+      * @param deposito : es el monto que se envia por parametro para depositar
+      * @return float saldo : retorna el saldo
+      * @throws operacionInvalidaException 
+      */
+    public float depositar(float deposito) throws operacionInvalidaException {
+    
+<span class="fc bfc" id="L84" title="All 2 branches covered.">        if (deposito &lt;= 0) { </span>
+<span class="fc" id="L85">            throw new operacionInvalidaException(&quot;Deposito invalido&quot;);</span>
+        }
+        
+        else 
+<span class="fc" id="L89">            saldo += deposito;</span>
+<span class="fc" id="L90">        return saldo; </span>
+
+}
+     /**
+      * metodo que se encarga de hacer retiros de dinero
+      * @param retiro : paremetro que se envia para retirar dinero 
+      * @return float saldo : retorna el saldo
+      * @throws saldoInsuficienteException : en caso de que el saldo sea insufienciente , se muestra esta excepcion
+      * @throws operacionInvalidaException : en caso de que el parametro sea invalido, se capta esta excepcion preguntar al profe
+      */
+    public float retirar(float retiro) throws saldoInsuficienteException, operacionInvalidaException {
+            
+        
+        
+<span class="fc bfc" id="L104" title="All 2 branches covered.">           if(retiro &gt; saldo){</span>
+<span class="fc" id="L105">            throw new saldoInsuficienteException(&quot;Saldo insuficiente&quot;);</span>
+          }
+          
+<span class="fc bfc" id="L108" title="All 2 branches covered.">          else if(retiro &lt;= 0){</span>
+              
+<span class="fc" id="L110">              throw new operacionInvalidaException(&quot;retiro invalido&quot;);</span>
+           
+          
+          }
+         
+         else
+<span class="fc" id="L116">              saldo-= retiro;</span>
+<span class="fc" id="L117">      return saldo;</span>
+    
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

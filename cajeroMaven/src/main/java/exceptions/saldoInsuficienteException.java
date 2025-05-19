@@ -6,8 +6,20 @@ package exceptions;
 
 /**
  *
- * @author Sebastian
+ *  
+ * @author sebastian villaneda gutierrez<sebastian.villanedag@autonoma.edu.co>
+ * @version 1.0
+ * @since  05/10/2025
+ * 
  */
-public class saldoInsuficienteException {
+public class saldoInsuficienteException extends Exception {
+    /**
+     * 
+     * @param mensaje : Contiene el mensaje de error
+     */
+    public saldoInsuficienteException(String mensaje){
+        super(mensaje);
+    
+    }
     
 }

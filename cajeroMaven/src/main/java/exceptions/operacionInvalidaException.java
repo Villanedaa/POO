@@ -6,8 +6,19 @@ package exceptions;
 
 /**
  *
- * @author Sebastian
+ *  
+ * @author sebastian villaneda gutierrez<sebastian.villanedag@autonoma.edu.co>
+ * @version 1.0
+ * @since  05/10/2025
+ * 
  */
-public class operacionInvalidaException {
+public class operacionInvalidaException extends Exception{
+    /**
+     * 
+     * @param mensaje : contiene el mensaje de error
+     */
+    public operacionInvalidaException(String mensaje){
+        super(mensaje);
     
+    }
 }

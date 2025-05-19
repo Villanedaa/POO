@@ -11,11 +11,11 @@
     <packaging>jar</packaging>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>24</maven.compiler.release>
-        <junit.version>5.9.2</junit.version>
-        <jacoco.version>0.8.12</jacoco.version>
-        <surefire.version>3.0.0-M9</surefire.version> <!-- Versión más reciente compatible con JDK 21+ -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>21</maven.compiler.release> <!-- Cambiado de 24 a 21 -->
+    <junit.version>5.9.2</junit.version>
+    <jacoco.version>0.8.12</jacoco.version>
+    <surefire.version>3.0.0-M9</surefire.version>
     </properties>
 
     <dependencies>

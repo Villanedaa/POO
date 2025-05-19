@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+CajeroMaven,cliente,Cliente,0,23,0,0,0,10,0,5,0,5
+CajeroMaven,exceptions,usuarioIncorrectoException,0,4,0,0,0,2,0,1,0,1
+CajeroMaven,exceptions,saldoInsuficienteException,0,4,0,0,0,2,0,1,0,1
+CajeroMaven,exceptions,operacionInvalidaException,0,4,0,0,0,2,0,1,0,1
+CajeroMaven,cajero,Cajero,0,76,1,9,0,19,1,10,0,6

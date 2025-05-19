@@ -6,8 +6,20 @@ package exceptions;
 
 /**
  *
- * @author Sebastian
+ *  
+ * @author sebastian villaneda gutierrez<sebastian.villanedag@autonoma.edu.co>
+ * @version 1.0
+ * @since  05/10/2025
+ * 
  */
-public class usuarioIncorrectoException {
+public class usuarioIncorrectoException extends Exception {
+   /**
+    * 
+    * @param mensaje : Contiene el mensaje de error
+    */ 
+
+    public usuarioIncorrectoException(String message) {
+        super(message);
+    }
     
 }
